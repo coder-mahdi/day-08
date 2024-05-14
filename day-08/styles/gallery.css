@@ -98,21 +98,41 @@ a:active {
 
 	.site-wrapper {
 		
+		display: grid;
+		grid-template-columns: 1fr minmax(auto, 53rem) minmax(auto, 22rem) 1fr;
+
+		grid-template-areas: 
+		  "header header header header"
+		   " . main sidebar ."
+		   "footer footer footer footer";
+	}
+
+	side-wrapper.sidebar-left{
+		grid-template-columns: 1fr minmax(auto, 22rem) minmax(auto, 53rem) 1fr;
+
+		grid-template-areas: 
+		"header hearder hearder hearder"
+		". sidebar main ."
+		"footer footer footer footer"
+		;
+
 	}
 
 	.site-header {
-		
+		grid-area: header;
 	}
 
 	.site-main {
-		
+		grid-area: main;
 	}
 
 	.site-sidebar {
+		grid-area: sidebar;
 		
 	}
 
 	.site-footer {
+		grid-area: footer;
 		
 	}
 
@@ -226,21 +246,45 @@ a.site-name {
 @media (min-width: 68em) {
 
 	.photo-gallery {
+
 		display: grid;
 
 		/*
 		grid-template-columns: 18.75rem 18.75rem 18.75rem;
 		*/
 
+        /*
 		grid-template-rows: auto auto;
+		*/
+
 		/*
 		grid-template-columns: 1fr 1fr 1fr;
 		*/
-/*
+
+		/*Creat 4 clomumn, 200px wide each */
+
+		grid-column: repeat(4, 12.5rem);
+
+		/*Make all automatically generated rows 200px each*/
+		/*grid-auto-rows: 12.5;*/
+
+		grid-auto-flow: 12.5rem;
+
+        
 		grid-template-columns: repeat(2, 18.75rem) 1fr;
+		
+        /*
+		grid-template-columns: repeat(2, 18.75rem) minmax(18.75rem, 1fr);
 		*/
 
-		grid-template-columns: repeat(2, 18.75rem) minmax(18.75rem, 1fr);
+		/* grid-template-rows: auto auto;*/
+		grid-template-rows: 10rem 300px auto;
+
+		gap: 1rem;
+		justify-content: center;
+
+		align-items: stretch;
+		justify-content: stretch;
 	}
 
 	.photo-gallery img {
@@ -250,10 +294,16 @@ a.site-name {
 	}
 
 	.large-image {
+		/*
+		grid-column: 2 / 4;
+		*/
+		grid-column: span 2;
 
 	}
 
 	.large-image img {
+		object-fit: cover;
+		object-position: left bottom;
 
 	}
 
@@ -261,6 +311,14 @@ a.site-name {
 		background-color: #444444;
 		color: #ffffff;
 		padding: 1rem 2rem;
+/* Option 1 
+		grid-row: span2;
+		grid-column: span2;
+		order:-1;
+		*/
+		grid-column: 1 / 3;
+		grid-row: 1 / 3;
+
 	}
 
 }
