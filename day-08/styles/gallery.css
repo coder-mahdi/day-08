@@ -233,7 +233,11 @@ a.site-name {
 		*/
 
 		grid-template-rows: auto auto;
+		/*
 		grid-template-columns: 1fr 1fr 1fr;
+		*/
+
+		grid-template-columns: repeat(2, 18.75rem) 1fr;
 	}
 
 	.photo-gallery img {
