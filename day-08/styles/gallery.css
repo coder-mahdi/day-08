@@ -226,7 +226,7 @@ a.site-name {
 @media (min-width: 68em) {
 
 	.photo-gallery {
-
+		display: grid;
 	}
 
 	.photo-gallery img {
